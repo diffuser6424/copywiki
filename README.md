@@ -22,7 +22,7 @@ articles that have titles that contain special characters are not being processe
 
 looks like comments and other uses of the "<" and ">" characters will break the article.
 
-##[2023-01-13
+## 2023-01-13
 
 okay so today we have a pagecollector-simple.py it takes a categories.txt which is a list of Wikipedia categories, separated by newlines. the page collector will then get each page linked to that category and print it to categorypages.txt before moving on to the next category in the list.
 
