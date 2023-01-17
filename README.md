@@ -1,15 +1,92 @@
 # copywiki
+
 Wikipedia scraper using mediawiki API and Requests python module.
 
 ## Intro
+
 The goal is to parse Wikipedia articles and then manipulate the text to be accessible in markdown format (the source is in mediawiki format).
 I am aware that wikipedia_parser, wikipediaapi, mwparserfromhell, and BeautifulSoup exist but this is me attempting to use just requests module.
 
 ## Use
+
 1. Open `copywiki12.py` with VS Code.
 2. Edit `articles.txt` (in the same directory as python file) to include a list of articles you want parsed, separated by newline.
 3. Select "Run Python File", in VS Code.
 4. Check Obsidian vault for newly outputted markdown files.
+
+## Overview
+
+### Main function
+
+#### Description
+
+- use requests Python module to interact with MediaWiki API
+- read response from API to get content
+- manipulate content for optimization with Obsidian
+- write content to directory where user stores their data
+
+#### Sequence
+
+`Copywiki20.py`
+
+- Execute `copywiki`
+- Try to open `articles.txt` in read mode with UTF-8 encoding
+	- Write article titles to list `article_titles`
+	- Set `line_count` to `len(article_titles)`
+	- Output `line_count`
+- Set `article_titles` to `[title.strip() for title in article_titles]`
+- Loop `for article_title in article_titles` list
+	- Check for certain characters like "?" and ":" in `article_title`
+	- Call function `main`
+		- Get `response = requests.get(url)`
+		- Set `data = response.json()`
+		- Set `pages = data["query"]["pages"]`
+		- Set `page_id = list(pages.keys())[0]`
+		- Get`markdown = data.get("query", {}).get("pages", {}).get(page_id, {}).get("revisions", [{}])[0].get("*", "")`
+		- Call function `replace_category`
+		- Call function `remove_lines_with_braces`
+		- Call function `modify_text`
+		- Call function `remove_trailing_pounds`
+		- return `markdown`
+	- Set `file_name` to `article_title.replace("_", " ") + ".md"`
+	- Output progress and iterate `current_line`
+	- write `markdown` to directory with UTF-8 encoding as `file_name`
+- Print `current_line` / `line_count` “lines processed”.
+
+### Optimize content for Obsidian
+
+- Replace categories with tags
+- Remove HTML inline references
+- Remove trailing pounds (a workaround)
+- Remove lines starting with special characters (removes table data)
+ 
+### Limitations
+
+- Can not interpret any tables
+- Breaks when given "?", "/", """, and ":". Will currently skip these articles.
+- Skips printing categories as they usually don't associate directly with pages.
+
+### Other functions
+
+- DirFileNames.py (r=directory, w=filenames.txt)
+- listmaker2.py (r=articles.txt, w=articles.txt)
+- pagecollector-simple.py (r=categories.txt, w=categorypages.txt)
+- categorycollector2.py (r=categories.txt, w=subcategories.txt)
+
+### text files separated by newline
+
+- articles.txt
+- categoryPages.txt
+- categories.txt
+- subcategories.txt
+- filenames.txt
+
+## Product
+
+Data analysis with Obsidian
+- Obsidian markdown vault with graph and tag plugins enabled.
+- Obsidian opens a file directory, aggregates tags and generates graphs to display relationships between files/articles.
+- I am still searching for use cases and new methods of using mediawiki API.
 
 ## 2023-01-10
 I'm trying to get the categories to turn into tags. I think plugins in other vaults might be effecting the speed of my other vaults. It seems like this vault is loading faster since I disabled some plugins in the bookmarks vault.
@@ -91,32 +168,6 @@ I would like to combine the functions in `main`.
 - User prompted for input → “category title” → writes to `categories.txt`
 - Execute `categoryCollector.py`, uses `categories.txt` to append subcategories to `categories.txt`
 - Execute `pagecollector.py` uses `categories.txt` to overwrite article titles to `articles.txt`
-
-`Copywiki20.py`
-
-- Execute `copywiki`
-- Try to open `articles.txt` in read mode with UTF-8 encoding
-	- Write article titles to list `article_titles`
-	- Set `line_count` to `len(article_titles)`
-	- Output `line_count`
-- Set `article_titles` to `[title.strip() for title in article_titles]`
-- Loop `for article_title in article_titles` list
-	- Check for certain characters like "?" and ":" in `article_title`
-	- Call function `main`
-		- Get `response = requests.get(url)`
-		- Set `data = response.json()`
-		- Set `pages = data["query"]["pages"]`
-		- Set `page_id = list(pages.keys())[0]`
-		- Get`markdown = data.get("query", {}).get("pages", {}).get(page_id, {}).get("revisions", [{}])[0].get("*", "")`
-		- Call function `replace_category`
-		- Call function `remove_lines_with_braces`
-		- Call function `modify_text`
-		- Call function `remove_trailing_pounds`
-		- return `markdown`
-	- Set `file_name` to `article_title.replace("_", " ") + ".md"`
-	- Output progress and iterate `current_line`
-	- write `markdown` to directory with UTF-8 encoding as `file_name`
-- Print `current_line` / `line_count` “lines processed”.
 
 ==Are you sure you want to overwrite `articles.txt`?==
 
