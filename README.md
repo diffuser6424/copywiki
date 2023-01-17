@@ -88,6 +88,26 @@ Data analysis with Obsidian
 - Obsidian opens a file directory, aggregates tags and generates graphs to display relationships between files/articles.
 - I am still searching for use cases and new methods of using mediawiki API.
 
+![](https://i.imgur.com/1rhLSRX.jpg)
+![](https://i.imgur.com/rOnaJ89.jpg)
+![](https://i.imgur.com/rbnAuZf.jpg)
+![](https://i.imgur.com/SwlHaa3.jpg)
+![](https://i.imgur.com/4l8TW13.jpg)
+![](https://i.imgur.com/gJodh1m.jpg)
+![](https://i.imgur.com/B29OPfQ.jpg)
+![](https://i.imgur.com/G7Sp349.png)
+![](https://i.imgur.com/oUgQKAl.jpg)
+![](https://i.imgur.com/oPKvLub.jpg)
+![](https://i.imgur.com/Kmqd6fr.jpg)
+![](https://i.imgur.com/qoH0Z7J.jpg)
+![](https://i.imgur.com/MaTVH3t.jpg)
+![](https://i.imgur.com/XDAW0XQ.jpg)
+![](https://i.imgur.com/LbqMaJ1.jpg)
+![](https://i.imgur.com/1AF3bNS.png)
+![](https://i.imgur.com/pKLrllP.jpg)
+![](https://i.imgur.com/FSFOpex.jpg)
+![](https://i.imgur.com/YwAhDv8.jpg)
+
 ## 2023-01-10
 I'm trying to get the categories to turn into tags. I think plugins in other vaults might be effecting the speed of my other vaults. It seems like this vault is loading faster since I disabled some plugins in the bookmarks vault.
 
