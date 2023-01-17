@@ -5,7 +5,7 @@ Wikipedia scraper using mediawiki API and Requests python module.
 ## Intro
 
 The goal is to parse Wikipedia articles and then manipulate the text to be accessible in markdown format (the source is in mediawiki format).
-I am aware that wikipedia_parser, wikipediaapi, mwparserfromhell, and BeautifulSoup exist but this is me attempting to use just requests module.
+I am aware that wikipedia_parser, wikipediaapi, mwparserfromhell, and BeautifulSoup exist but this is me attempting to use just requests module. Then, open the directory using Obsidian and create Canvases to connect ideas. My original uses of the files were to jump from local graph to local graph but I see now that combined with Dataview, I can display article lists filtered by category/tag and more.
 
 ## Use
 
