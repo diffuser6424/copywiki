@@ -2,6 +2,9 @@
 
 Wikipedia scraper using mediawiki API and Requests python module.
 
+## Disclaimer
+This python script originated from ChatGPT (Jan 9) by OpenAI after have lengthy conversations with the author of this readme (diffuser6424).
+
 ## Intro
 
 The goal is to parse Wikipedia articles and then manipulate the text to be accessible in markdown format (the source is in mediawiki format).
