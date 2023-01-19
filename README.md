@@ -11,11 +11,11 @@ I am aware that wikipedia_parser, wikipediaapi, mwparserfromhell, and BeautifulS
 
 1. Open "copywiki" directory with VS Code.
 2. Edit `articles.txt` (in the same directory as python file) to include a list of articles you want parsed, separated by newline.
-	You can find more articles by entering a category in the form of "Category:<insert category name>" in `categories.txt` and running `Page-collector-simple.py`. This will output to `categoryPages.txt`. Copy and paste these article titles into `articles.txt.`
-	You can find subcategoires automatically by entering one (or a list of categories, separated by newline) in the form of "Category:<insert category name>" in `categories.txt` and running `categorycollector2.py`. This will output to `subcategories.txt`. Copy and paste these article titles into `categories.txt.` and run `categorycollector2.py` again.
-2. Navigate to `copywiki20.py`
-3. Select "Run Python File", in VS Code.
-4. Check file system and/or Obsidian vault for newly outputted markdown files.
+	1. You can find more articles by entering a category in the form of "Category:<insert category name>" in `categories.txt` and running `Page-collector-simple.py`. This will output to `categoryPages.txt`. Copy and paste these article titles into `articles.txt.`
+	2. You can find subcategoires automatically by entering one (or a list of categories, separated by newline) in the form of "Category:<insert category name>" in `categories.txt` and running `categorycollector2.py`. This will output to `subcategories.txt`. Copy and paste these article titles into `categories.txt.` and run `categorycollector2.py` again.
+3. Navigate to `copywiki20.py`
+4. Select "Run Python File", in VS Code.
+5. Check file system and/or Obsidian vault for newly outputted markdown files.
 
 ## Overview
 
